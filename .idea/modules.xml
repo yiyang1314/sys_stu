@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/spring-utils-common/spring-boot-commons.iml" filepath="$PROJECT_DIR$/spring-utils-common/spring-boot-commons.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-boot-dependences/spring-boot-dependences.iml" filepath="$PROJECT_DIR$/spring-boot-dependences/spring-boot-dependences.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-boot-enrekar-server/spring-boot-enrekar-server.iml" filepath="$PROJECT_DIR$/spring-boot-enrekar-server/spring-boot-enrekar-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-boot-generator/spring-boot-generator.iml" filepath="$PROJECT_DIR$/spring-boot-generator/spring-boot-generator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-boot-jpa/spring-boot-jpashiro.iml" filepath="$PROJECT_DIR$/spring-boot-jpa/spring-boot-jpashiro.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-boot-mp/spring-boot-mp.iml" filepath="$PROJECT_DIR$/spring-boot-mp/spring-boot-mp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/spring-boot-samples.iml" filepath="$PROJECT_DIR$/.idea/spring-boot-samples.iml" />
+    </modules>
+  </component>
+</project>
