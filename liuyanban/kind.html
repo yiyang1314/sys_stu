@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>我的留言板</title>
+		<style>
+			*{
+				margin: 0px;
+				padding: 0px;
+			}
+			body{
+				margin: 0px;
+				background-color: cadetblue;
+				padding-left:10px;
+			}
+			#nav{
+				width:200px;
+				border: antiquewhite 1px;
+				color:  darkkhaki;
+				background-color: #DDDDDD;
+			}
+			#container{
+				text-indent: 2em;
+				width:1000px;
+				padding-left:50px;
+				padding-top:50px;
+				border: antiquewhite 1px;
+				color: brown;
+				background-color: #DDDDDD;
+				padding-bottom: 250px;
+				float:  right;
+				margin-right: 80px;
+			}
+			.text{
+				padding:20px 40px;
+				background-color: #CCCCCC;
+				border: 2px solid #000000;
+				width:80%;
+			}
+			
+			textarea{
+				margin-top: 80px;
+				width:800px;
+				height:300px;
+				background-color:  #DDDDDD;
+				color: #000000;
+				margin-bottom: 25px;
+			}
+			
+			#content2{
+				border-top: #999999 solid 1px;
+				padding-bottom: 30px;
+				background-color: #DDDDDD;
+			}
+			
+			.item{
+				border-bottom: #666666 solid 1px;
+				margin-top: 10px;
+				padding-top: 30px;
+				padding-left: 40px;
+				padding-bottom: 30px;
+				background-color:  #E9EFF6;	
+			}
+			.item div{
+				padding-left: 20px;
+				text-indent: 10px;
+			}
+			.item span{
+				padding-left: 20px;
+				text-indent: 10px;
+				font-size: 12px;
+			}
+			
+			.item div{
+				padding-left: 20px;
+				padding-top: 8px;
+				text-indent: 10px;
+			}
+			img{
+				border-radius: 10px 10px;
+				width: 20px;
+				height: 20px;
+			}
+			
+			footer{
+				border-top: 1px;
+				position:fixed;
+				width: 79%;
+				height: 35px;
+				bottom:1px;
+				left: 200px;
+				text-align: center;
+				background-color: #337FE5;
+			}
+		</style>
+		<link rel="stylesheet" href="./js/kindeditor-4.1.10/themes/default/default.css" />
+		<script charset="utf-8" src="./js/kindeditor-4.1.10/kindeditor-min.js"></script>
+		<script charset="utf-8" src="./js/kindeditor-4.1.10/lang/zh_CN.js"></script>
+	</head>
+	<body>
+		<div id="nav">
+			
+		</div>
+		<div id="container">
+			<h1>KindEditor 优点</h1>
+			<p class="text">
+				KindEditor使用JavaScript编写，可以无缝的于Java、.NET、PHP、ASP等
+				程序接合。 KindEditor非常适合在CMS、商城、论坛、博客、Wiki、电子邮件等
+				互联网应用上使用，2006年7月首次发布2.0以来，
+				KindEditor依靠出色的用户体验和领先的技术不断扩大
+				编辑器市场占有率，目前在国内已经成为最受欢迎的编辑器之一。
+				KindEditor使用JavaScript编写，可以无缝的于Java、.NET、PHP、ASP等
+				程序接合。 KindEditor非常适合在CMS、商城、论坛、博客、Wiki、电子邮件等
+				互联网应用上使用，2006年7月首次发布2.0以来，
+				KindEditor依靠出色的用户体验和领先的技术不断扩大
+				编辑器市场占有率，目前在国内已经成为最受欢迎的编辑器之一。
+				KindEditor使用JavaScript编写，可以无缝的于Java、.NET、PHP、ASP等
+				程序接合。 KindEditor非常适合在CMS、商城、论坛、博客、Wiki、电子邮件等
+				互联网应用上使用，2006年7月首次发布2.0以来，
+				KindEditor依靠出色的用户体验和领先的技术不断扩大
+				编辑器市场占有率，目前在国内已经成为最受欢迎的编辑器之一。
+			</p>
+			<br />
+			<textarea name="content"  id="content"  >
+				
+			</textarea>
+			<p style="margin-bottom: 25px;margin-top: 25px;">
+				<input type="submit" id="commit" name="commit" value="评论"/>
+			</p>
+			<div id="content2">
+				<div class="item">
+					<p><img src="img/04.jpg"> &nbsp;&nbsp;&nbsp;楚霸王</p>
+					<span>2019-11-22 22:23:35</span>
+					<div> 人生难得须尽欢。</div>
+				</div>
+			</div>
+			<footer>
+				<p style="text-align: center;"> 版权所归 Copy 2019 ....</p>
+			</footer>
+		</div>
+		<script>
+			var editor;
+			var names=['张三','李四','wangwu','朱忠斌','李世民','朱元璋','郭大侠','湘儿','花花'];
+			
+			KindEditor.ready(function(K) {
+				editor = K.create('textarea[name="content"]', {
+					allowFileManager : true,
+				});
+				K('input[name=commit]').click(function(e) {
+					var date=new Date();
+					var d=date.getFullYear()+"-"
+						+(date.getMonth()+1)+"-"
+						+date.getDate()+"  "
+						+date.getHours()+":"
+						+date.getMinutes()+":"
+						+date.getSeconds();
+					K('.item div').html();
+					var name=names[parseInt(Math.random()*names.length)];
+					var item='<div class="item"><p><img src="img/0'+parseInt(Math.random()*4+1)
+					+'.jpg" /><span>&nbsp;&nbsp;'
+					+name
+					+'</span></p><span>'
+					+d+
+					'</span><div>'+editor.html()
+					+'</div></div>';
+					K('#content2').append(item);
+				});
+				
+				K('input[name=appendHtml]').click(function(e) {
+					editor.insertHtml('<strong>插入HTML</strong>');
+					editor.appendHtml('<strong>添加HTML</strong>');
+					editor.text('<h3>Hello KindEditor</h3>');
+					alert(editor.selectedHtml());
+					alert(editor.isEmpty());
+				});
+
+			});
+			
+		</script>
+	</body>
+</html>

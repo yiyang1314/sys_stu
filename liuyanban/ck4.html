@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+        <head>
+		<meta charset="utf-8">
+		<title>留言板</title>
+		<!-- <script src="https://cdn.ckeditor.com/4.13.0/standard/ckeditor.js"></script> -->
+		  <script src="https://cdn.ckeditor.com/4.13.0/standard-all/ckeditor.js"></script>
+        </head>
+        <body>
+			<textarea name="editor1"  rows="10"  cols="80"></textarea>
+			
+			<script>
+					CKEDITOR.replace( 'editor1',{
+						 //extraPlugins: 'uicolor',颜色选择器
+						 language: 'es',//语言选择
+						 language_list: ['ar:Arabic:rtl', 'fr:French', 'he:Hebrew:rtl', 'es:Spanish'],
+						 height: 270 //高度
+						
+						//extraPlugins: 'colorbutton,colordialog' 添加文本和背景色
+						<!-- 自定义文本和背景色
+						//extraPlugins: 'colorbutton',
+						//colorButton_colors: 'CF5D4E,454545,FFF,CCC,DDD,CCEAEE,66AB16',
+						//colorButton_enableAutomatic: false
+						-->
+						contentsCss: [//自定义经典编辑器
+						        'http://cdn.ckeditor.com/4.13.0/full-all/contents.css',
+						        'https://ckeditor.com/docs/vendors/4.13.0/ckeditor/assets/css/classic.css'
+						      ]
+					});
+					
+			</script>
+        </body>
+</html>
