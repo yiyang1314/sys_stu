@@ -1,0 +1,29 @@
+<!-- 5.事务管理 -->
+		<bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+			<property name="dataSource" ref="dataSource"/>
+		</bean>
+		
+		<!-- 事务通知 -->
+		<tx:advice id="txAdivce" transaction-manager="txManager">
+			<tx:attributes>
+				<tx:method name="insert*" propagation="REQUIRED"/>
+				<tx:method name="update*" propagation="REQUIRED"/>
+				<tx:method name="delete*" propagation="REQUIRED"/>
+				<tx:method name="save*" propagation="REQUIRED"/>				
+				<tx:method name="find*" read-only="false"/>
+				<tx:method name="get*" read-only="false"/>
+				<tx:method name="view*" read-only="false"/>
+			</tx:attributes>
+		</tx:advice>
+		
+		<!-- 切面编程配置，根据自身业务配置，若无相关拦截需求可不配置 -->
+		<aop:config>
+			<aop:pointcut expression="execution(* com.huang.service.*.*(..))" id="txPointcut"/>
+			<aop:advisor advice-ref="txAdivce" pointcut-ref="txPointcut"/>
+		</aop:config>
+		
+		<!-- 开启事务注解驱动 -->
+	    <!-- <tx:annotation-driven transaction-manager="txManager" /> -->
+————————————————
+版权声明：本文为CSDN博主「至尊小宝宝」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/weixin_38808487/article/details/81019758

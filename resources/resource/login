@@ -1,0 +1,39 @@
+
+@Controller
+@RequestMapping("user")
+public class UserController {
+	@Autowired
+	UserService userSer;
+	@Autowired
+	User user;
+	/**
+	 * @todo 用户登录
+	 * @since 获取当前用户，
+	 * 判断用户是否已经认证登录，
+	 * 用账号密码创建UsernamePasswordToken，
+	 * 调用subject的login方法
+	 * @param
+	 * @return
+	 */
+	@RequestMapping(method = RequestMethod.POST,value = "logon")
+	public String logon(@RequestParam("userCode")String userCode,@RequestParam("password")String password){
+		//创建Subject实例对象
+		Subject currentUser = SecurityUtils.getSubject();
+		//判断当前用户是否已登录
+		if(currentUser.isAuthenticated() == false){
+			UsernamePasswordToken token = new UsernamePasswordToken(userCode,password);
+			try {
+				currentUser.login(token);
+			} catch (AuthenticationException e) {
+				e.getMessage();
+				e.printStackTrace();
+				System.out.println("登录失败");
+				return "logon";
+			}
+		}
+		return "index";
+	}
+}
+————————————————
+版权声明：本文为CSDN博主「HansScopion」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/qq_29410905/article/details/80364305
