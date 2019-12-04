@@ -1,0 +1,33 @@
+今天，主要给大家讲四点
+1.什么是富文本编辑器？
+
+2.如何使用它?
+	引用：		
+		<link rel="stylesheet" href="./js/kindeditor-4.1.10/themes/default/default.css" />
+		<script charset="utf-8" src="./js/kindeditor-4.1.10/kindeditor-min.js"></script>
+		<script charset="utf-8" src="./js/kindeditor-4.1.10/lang/zh_CN.js"></script>
+		
+		<textarea name="content"  id="content"  >
+		</textarea>
+	创建editor对象
+		1. 加载
+		KindEditor.ready(function(K) {
+			
+		});
+		2. 创建editor
+		var editor=K.create(tagName,{options});
+		
+		3.使用editor和绑定事件
+
+3.文章评论的制作
+	
+	1.绑定文本域
+	
+	2.模板
+	<div id="content2">
+		<div class="item">
+			<p><img src="img/04.jpg"> &nbsp;&nbsp;&nbsp;楚霸王</p>
+			<span>2019-11-22 22:23:35</span>
+			<div> 人生难得须尽欢。</div>
+		</div>
+	</div>
